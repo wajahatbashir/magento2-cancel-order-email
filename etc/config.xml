@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <wb_cancelorderemail>
+            <general>
+                <enable>1</enable>
+                <email_template>wb_cancelorderemail_general_email_template</email_template>
+                <sender_email>sales</sender_email>
+            </general>
+            <admin_notification>
+                <enable>0</enable>
+                <admin_email></admin_email>
+            </admin_notification>
+        </wb_cancelorderemail>
+    </default>
+</config>

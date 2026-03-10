@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="wb_cancelorderemail_general_email_template"
+              label="Order Cancellation Email"
+              file="order_cancel_template.html"
+              type="html"
+              module="WB_CancelOrderEmail"
+              area="frontend"/>
+</config>

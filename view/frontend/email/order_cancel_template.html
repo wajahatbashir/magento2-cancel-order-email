@@ -1,0 +1,57 @@
+<!--
+/**
+ * WB_CancelOrderEmail - Order Cancellation Email Template
+ */
+-->
+<!--@subject {{trans "Your order #%increment_id has been cancelled" increment_id=$order.increment_id}} @-->
+<!--@vars {
+"var order.increment_id":"Order ID",
+"var order.getCustomerName()":"Customer Name",
+"var order.getCreatedAtFormatted(2)":"Order Date",
+"var store.frontend_name":"Store Name",
+"var order.formatPrice(order.grand_total)":"Grand Total"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr>
+        <td>
+            <h1 style="font-size:22px; font-weight:bold; margin-bottom:10px;">
+                {{trans "Your Order Has Been Cancelled"}}
+            </h1>
+            <p>{{trans "Dear %name," name=$order.getCustomerName()}}</p>
+            <p>
+                We're writing to let you know that your order <strong>#{{var order.increment_id}}</strong> placed on {{var order.getCreatedAtFormatted(2)}} has been cancelled.
+            </p>
+            <p>
+                {{trans "If you have any questions or did not request this cancellation, please contact our support team."}}
+            </p>
+
+            <table cellspacing="0" cellpadding="8" border="0" style="width:100%; margin-top:20px; border-collapse:collapse;">
+                <tr style="background-color:#f5f5f5;">
+                    <th align="left" style="padding:10px; border:1px solid #ddd;">{{trans "Order #"}}</th>
+                    <td style="padding:10px; border:1px solid #ddd;">{{var order.increment_id}}</td>
+                </tr>
+                <tr>
+                    <th align="left" style="padding:10px; border:1px solid #ddd;">{{trans "Order Date"}}</th>
+                    <td style="padding:10px; border:1px solid #ddd;">{{var order.getCreatedAtFormatted(2)}}</td>
+                </tr>
+                <tr style="background-color:#f5f5f5;">
+                    <th align="left" style="padding:10px; border:1px solid #ddd;">{{trans "Order Total"}}</th>
+                    <td style="padding:10px; border:1px solid #ddd;">{{var formatted_grand_total}}</td>
+                </tr>
+                <tr>
+                    <th align="left" style="padding:10px; border:1px solid #ddd;">{{trans "Status"}}</th>
+                    <td style="padding:10px; border:1px solid #ddd; color:#e22626;"><strong>{{trans "Cancelled"}}</strong></td>
+                </tr>
+            </table>
+
+            <p style="margin-top:20px;">
+                {{trans "Thank you for shopping with %store_name." store_name=$store_name}}
+            </p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}
